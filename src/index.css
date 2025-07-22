@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wedding MC Booking Site Design System - 늘봄 */
+
+@layer base {
+  :root {
+    /* Main Brand Colors - 늘봄 실제 테마 */
+    --background: 0 0% 100%;        /* 순백색 배경 */
+    --foreground: 0 0% 20%;         /* 진한 회색 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Primary - 늘봄 핑크 */
+    --primary: 340 82% 67%;         /* 늘봄 메인 핑크 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 340 82% 77%;
+    --primary-dark: 340 82% 57%;
+
+    /* Secondary - 연한 핑크 */
+    --secondary: 340 50% 95%;       /* 매우 연한 핑크 */
+    --secondary-foreground: 0 0% 20%;
+
+    /* Accent - 진한 회색 */
+    --accent: 0 0% 15%;             /* 다크 그레이 */
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 0 0% 25%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 340 82% 67%;
+
+    --radius: 0.5rem;
+
+    /* 늘봄 그라데이션 */
+    --gradient-primary: linear-gradient(135deg, hsl(340 82% 67%), hsl(320 75% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(340 82% 67% / 0.05), hsl(320 75% 75% / 0.02));
+    --gradient-card: radial-gradient(circle at top right, hsl(340 82% 67% / 0.03), transparent 50%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(25 85% 65% / 0.15);
+    --shadow-card: 0 8px 30px hsl(215 25% 15% / 0.1);
+    --shadow-button: 0 4px 15px hsl(25 85% 65% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-noto text-sm;
+  }
+
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+
+  h2 {
+    @apply text-xl font-medium;
+  }
+
+  h3 {
+    @apply text-lg font-medium;
+  }
+}
+
+@layer components {
+  /* 늘봄 스타일 컴포넌트 */
+  .btn-wedding {
+    @apply bg-primary text-primary-foreground px-4 py-2 rounded text-sm font-medium
+           transition-colors hover:bg-primary-dark active:scale-95;
+  }
+
+  .btn-wedding-outline {
+    @apply border border-primary text-primary bg-transparent px-4 py-2 rounded text-sm font-medium
+           transition-colors hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .card-wedding {
+    @apply bg-card rounded-lg p-4 shadow-md border border-border/20;
+  }
+
+  /* Form 스타일 */
+  .form-wedding {
+    @apply bg-input border border-border/60 rounded px-3 py-2 text-sm text-foreground
+           placeholder:text-muted-foreground focus:outline-none focus:ring-1 
+           focus:ring-primary focus:border-primary transition-colors shadow-sm;
+  }
+
+  /* 간단한 애니메이션 */
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-[--transition-smooth] hover:-translate-y-1 hover:shadow-[--shadow-soft];
+  }
+
+  .hover-glow {
+    @apply transition-[--transition-smooth] hover:shadow-[--shadow-button];
+  }
+
+  /* Calendar Styles */
+  .calendar-date {
+    @apply p-2 text-center cursor-pointer rounded-lg border border-border/20 
+           hover:bg-secondary/30 transition-colors relative flex flex-col items-center justify-start;
+  }
+
+  .calendar-date.has-event {
+    @apply border-primary/30;
+  }
+
+  /* 에디터 placeholder 스타일 */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+    display: block;
+  }
+
+  [contenteditable]:focus {
+    outline: none;
+  }
+
+  /* 에디터 스타일 */
+  [contenteditable] img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+  }
+
+  [contenteditable] blockquote {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 16px;
+    margin: 16px 0;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+  }
+
+  [contenteditable] ul, [contenteditable] ol {
+    margin: 16px 0;
+    padding-left: 24px;
+  }
+
+  [contenteditable] li {
+    margin: 8px 0;
+  }
+}
